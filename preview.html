@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prévia — Pedaco Cloud</title>
+    <link rel="icon" type="image/png" href="images/icon-64.png">
+    <link rel="stylesheet" href="css/theme.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        .header {
+            align-items: center;
+            display: flex;
+            height: 3.5rem;
+            justify-content: space-between;
+            padding: 0 2rem;
+        }
+
+        .header-brand {
+            font-size: 1.05rem;
+            font-weight: 650;
+            letter-spacing: 0.02em;
+        }
+
+        .header-label {
+            color: #f1cdd0;
+            font-size: 0.85rem;
+        }
+
+        .login-ui {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            min-height: calc(100vh - 3.5rem);
+            padding: 2rem 1rem;
+        }
+
+        .login-ui .login-dialog {
+            max-width: 24rem;
+            padding: 2rem;
+            width: 100%;
+        }
+
+        .login-ui .login-dialog .logo {
+            background-image: url("images/icon-144.png");
+        }
+
+        .preview-caption {
+            color: #80565b;
+            font-size: 0.95rem;
+            margin: 0 0 1.75rem;
+            text-align: center;
+        }
+
+        .login-fields label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 550;
+            margin: 1rem 0 0.4rem;
+        }
+
+        .login-ui .login-dialog .login-fields input {
+            font: inherit;
+            padding: 0.75rem;
+            width: 100%;
+        }
+
+        .login-ui .login-dialog .login-fields input[type="submit"] {
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 1.4rem;
+        }
+
+        .preview-note {
+            color: #8d7275;
+            font-size: 0.8rem;
+            margin: 1.5rem 0 0;
+            text-align: center;
+        }
+
+        .preview-home {
+            background: #fcf3f4;
+            border-top: 1px solid var(--pedaco-border);
+            padding: 2rem;
+        }
+
+        .preview-home h2 {
+            color: var(--pedaco-red-dark);
+            font-size: 1.1rem;
+            margin: 0 0 1rem;
+        }
+
+        .preview-home .icon {
+            align-items: center;
+            display: inline-flex;
+            justify-content: center;
+        }
+
+        .preview-home .icon.expand {
+            height: 24px;
+            width: 24px;
+        }
+
+        .preview-home .expandable.expanded > .caption .icon.expand::before {
+            content: "▾";
+        }
+
+        .preview-home .icon.type::before {
+            font-size: 1.4em;
+        }
+
+        .preview-home .icon.type.ssh::before {
+            content: "⌨";
+        }
+
+        .preview-home .icon.type.rdp::before,
+        .preview-home .icon.type.vnc::before {
+            content: "🖥";
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-brand">Pedaco Cloud</div>
+        <div class="header-label">Prévia do tema personalizado</div>
+    </header>
+    <main class="login-ui">
+        <section class="login-dialog" aria-label="Demonstração de login">
+            <div class="logo" role="img" aria-label="Pedaco Cloud"></div>
+            <p class="preview-caption">Acesso remoto, com uma nova paleta.</p>
+            <form class="login-fields">
+                <label for="username">Utilizador</label>
+                <input id="username" type="text" placeholder="O seu utilizador">
+                <label for="password">Palavra-passe</label>
+                <input id="password" type="password" placeholder="A sua palavra-passe">
+                <input type="submit" value="Entrar">
+            </form>
+            <p class="preview-note">Demonstração visual — não envia dados.</p>
+        </section>
+    </main>
+    <section class="preview-home" aria-label="Demonstração da lista de conexões">
+        <h2>Todas as conexões</h2>
+        <div class="all-connections">
+            <div class="group-list">
+                <div class="group-list-page">
+                    <div class="list-item">
+                        <div class="connection">
+                            <div class="caption">
+                                <a class="home-connection" href="#">
+                                    <div class="icon type ssh"></div>
+                                    <span class="name">Servidor Web</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <div class="connection">
+                            <div class="caption">
+                                <a class="home-connection" href="#">
+                                    <div class="icon type rdp"></div>
+                                    <span class="name">Desktop Windows</span>
+                                    <span class="activeUserCount">1 utilizador ativo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <div class="connection-group expandable expanded">
+                            <div class="caption">
+                                <div class="icon expand"></div>
+                                <a class="home-connection-group" href="#">
+                                    <span class="name">Laboratório</span>
+                                </a>
+                            </div>
+                            <div class="children">
+                                <div class="list-item">
+                                    <div class="connection">
+                                        <div class="caption">
+                                            <a class="home-connection" href="#">
+                                                <div class="icon type vnc"></div>
+                                                <span class="name">VM Linux</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-item">
+                                    <div class="connection">
+                                        <div class="caption">
+                                            <a class="home-connection" href="#">
+                                                <div class="icon type ssh"></div>
+                                                <span class="name">Servidor interno</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

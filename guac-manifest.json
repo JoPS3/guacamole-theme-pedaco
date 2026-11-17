@@ -1,0 +1,14 @@
+{
+    "guacamoleVersion": "*",
+    "name": "Tema Pedaco Cloud",
+    "namespace": "pedaco-theme",
+    "css": [
+        "css/theme.css"
+    ],
+    "translations": [
+        "translations/en.json",
+        "translations/pt.json"
+    ],
+    "smallIcon": "images/icon-64.png",
+    "largeIcon": "images/icon-144.png"
+}

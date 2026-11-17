@@ -1,0 +1,220 @@
+:root {
+    --pedaco-red: #b83a45;
+    --pedaco-red-dark: #792832;
+    --pedaco-red-hover: #9e303b;
+    --pedaco-rose: #f8e9ea;
+    --pedaco-border: #e8cdd0;
+    --pedaco-text: #42272a;
+}
+
+body {
+    color: var(--pedaco-text);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.login-ui {
+    background:
+        radial-gradient(ellipse at 18% 15%, rgba(255, 255, 255, 0.8), transparent 42%),
+        linear-gradient(135deg, #fcf1f1, #f1dfe1);
+}
+
+.login-ui .login-dialog {
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid var(--pedaco-border);
+    border-radius: 0.8em;
+    box-shadow: 0 1em 2.5em rgba(110, 40, 48, 0.14);
+    max-width: 19em;
+    padding: 1.4em 1.6em;
+}
+
+.login-ui .login-dialog .version {
+    display: none;
+}
+
+.login-ui .login-dialog .logo {
+    background: url("images/logo-144.png") no-repeat center top;
+    background-size: 2.5em 2.5em;
+    height: auto;
+    margin: 0 auto 1em;
+    padding-top: 2.8em;
+    width: auto;
+}
+
+.login-ui .login-dialog .logo::after {
+    color: var(--pedaco-red-dark);
+    content: "Pedaco Cloud";
+    display: block;
+    font-size: 1.55em;
+    font-weight: 650;
+    line-height: 1.3;
+    text-align: center;
+}
+
+.login-ui .login-dialog .login-fields input {
+    background-color: #fffafa;
+    border: 1px solid var(--pedaco-border);
+    border-radius: 0.35em;
+    color: var(--pedaco-text);
+}
+
+.login-ui .login-dialog .login-fields input:focus-visible {
+    border-color: var(--pedaco-red);
+    outline: 2px solid rgba(184, 58, 69, 0.25);
+    outline-offset: 1px;
+}
+
+.login-ui .login-dialog .buttons input[type="submit"] {
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0.6em 0.75em;
+}
+
+.header {
+    background: var(--pedaco-red-dark);
+    border-bottom: 1px solid #622129;
+    box-shadow: 0 2px 8px rgba(98, 33, 41, 0.16);
+    color: #fff7f7;
+}
+
+input[type="submit"],
+.login-ui .login-dialog .login-fields input[type="submit"],
+button:not(.danger),
+a.button:not(.danger) {
+    background-color: var(--pedaco-red);
+    border: 1px solid var(--pedaco-red);
+    border-radius: 0.35em;
+    color: #fff;
+    transition: background-color 120ms ease, border-color 120ms ease;
+}
+
+input[type="submit"]:hover,
+.login-ui .login-dialog .login-fields input[type="submit"]:hover,
+button:not(.danger):hover,
+a.button:not(.danger):hover {
+    background-color: var(--pedaco-red-hover);
+    border-color: var(--pedaco-red-hover);
+}
+
+input[type="submit"]:focus-visible,
+button:focus-visible,
+a.button:focus-visible {
+    outline: 2px solid var(--pedaco-red);
+    outline-offset: 2px;
+}
+
+button.danger,
+a.button.danger {
+    border-radius: 0.35em;
+}
+
+.all-connections .group-list-page,
+.all-connections .connection-group > .children {
+    display: grid;
+    gap: 0.75em;
+    grid-template-columns: repeat(auto-fill, minmax(11em, 1fr));
+}
+
+.all-connections .group-list-page {
+    padding: 0.25em 0;
+}
+
+.all-connections .list-item {
+    display: contents;
+}
+
+.all-connections .expandable.expanded > .children > .list-item::before,
+.all-connections .expandable.expanded > .children > .list-item::after {
+    display: none;
+}
+
+.all-connections .connection a,
+.all-connections .connection-group a {
+    color: var(--pedaco-text);
+    text-decoration: none;
+}
+
+.all-connections .connection,
+.all-connections .connection-group.empty.balancer {
+    background: #fff;
+    border: 1px solid var(--pedaco-border);
+    border-radius: 0.6em;
+    box-shadow: 0 1px 3px rgba(110, 40, 48, 0.08);
+    overflow: hidden;
+    transition: border-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
+}
+
+.all-connections .connection:hover,
+.all-connections .connection-group.empty.balancer:hover {
+    border-color: var(--pedaco-red);
+    box-shadow: 0 0.35em 1em rgba(110, 40, 48, 0.16);
+    transform: translateY(-2px);
+}
+
+.all-connections .connection > .caption,
+.all-connections .connection > .caption > ng-include,
+.all-connections .connection-group.empty.balancer > .caption,
+.all-connections .connection-group.empty.balancer > .caption > ng-include {
+    display: block;
+    height: 100%;
+}
+
+.all-connections .connection a.home-connection,
+.all-connections .connection-group.empty.balancer a.home-connection-group {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6em;
+    height: 100%;
+    justify-content: center;
+    padding: 1.2em 0.8em;
+    text-align: center;
+}
+
+.all-connections .connection .icon.type,
+.all-connections .connection-group.empty.balancer .icon.type {
+    background-color: var(--pedaco-rose);
+    background-size: 1.9em 1.9em;
+    border-radius: 50%;
+    height: 3.2em;
+    width: 3.2em;
+}
+
+.all-connections .connection .name,
+.all-connections .connection-group.empty.balancer .name {
+    font-weight: 550;
+    line-height: 1.3;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.all-connections .connection .activeUserCount {
+    background: var(--pedaco-red);
+    border-radius: 1em;
+    color: #fff;
+    font-size: 0.75em;
+    padding: 0.2em 0.8em;
+}
+
+.all-connections .connection-group:not(.empty.balancer) {
+    grid-column: 1 / -1;
+}
+
+.all-connections .connection-group:not(.empty.balancer) > .caption {
+    align-items: center;
+    background: var(--pedaco-rose);
+    border: 1px solid var(--pedaco-border);
+    border-radius: 0.6em;
+    display: flex;
+    gap: 0.25em;
+    padding: 0.45em 0.7em;
+}
+
+.all-connections .connection-group:not(.empty.balancer) > .caption .name {
+    color: var(--pedaco-red-dark);
+    font-weight: 600;
+}
+
+.all-connections .expandable > .children {
+    margin: 0.75em 0 0.25em;
+    padding: 0 0 0 0.5em;
+}
