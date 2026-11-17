@@ -22,6 +22,23 @@ Copie o `.jar` para a pasta `extensions` dentro do `GUACAMOLE_HOME` (por padrão
 `/etc/guacamole/extensions`) e reinicie o serviço/contêiner do Guacamole. Depois,
 atualize a página no navegador limpando o cache (Ctrl+F5).
 
+### Instalar em Docker
+
+Com Docker e Python 3 disponíveis, execute:
+
+```sh
+./load-theme-docker.sh <nome-ou-id-do-container-guacamole>
+```
+
+O script gera a extensão, copia-a para `GUACAMOLE_HOME/extensions` no contêiner
+em execução e reinicia esse contêiner, interrompendo temporariamente as conexões.
+É necessário ter acesso ao daemon Docker e permissão de escrita no diretório de
+extensões. Se `GUACAMOLE_HOME` não estiver definido, usa `/etc/guacamole`.
+
+Para manter o tema ao recriar o contêiner, monte o diretório de extensões num
+volume persistente e gravável. Sem esse volume, será necessário executar o script
+novamente após a recriação.
+
 O manifesto usa `"guacamoleVersion": "*"` porque esta extensão fornece apenas
 CSS, traduções e ícones e não depende de APIs internas do Guacamole. Para desfazer
 a personalização, remova o `.jar` da pasta `extensions` e reinicie o Guacamole.
